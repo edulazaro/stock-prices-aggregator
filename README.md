@@ -24,6 +24,8 @@ To run the app:
 1. Execute the command `php artisan serve` to start the development. The app will start on the port **8000** by default.
 2. Execute `npm run dev` to start Vite or `npm run build` in production. 
 
+You will be able to login with `test@example.com` and `password`.
+
 ## Running with Docker
 
 The `docker-compose` file starts three containers. One for nginx, another one for MySQL and anther one for the app, which uses the image created using the Dockerfile. If using more containers, another one could be added for memcached or Redis.
@@ -44,6 +46,7 @@ To run the migrations, execute these commands:
 1. Run the migrations with the command `docker-compose exec app php artisan migrate`.
 2. Run the seeders with the commad `docker-compose exec app php artisan db:seed`.
 
+You will be able to login with `test@example.com` and `password`.
 
 ## Testing
 
@@ -64,6 +67,12 @@ The StockPrice model includes the `getPercentageChangeAttribute` method, adding 
 ### Commands:
 
 * **UpdateStocksCommand**: This command uses the `AlphaVantageService` to fetch the latest price for the stocks defined in the configuration, printing the possible errors. The results are stored on the `stock_prices` table, creating the stock if it does not exist. To add a new stock, add it to the configured stocks.
+
+To configure task scheduling run the command `crontab -e` and add the next entry:
+
+```
+* * * * * cd /path/to/your/project && php artisan schedule:run >> /dev/null 2>&1
+```
 
 ### Repositories:
 
