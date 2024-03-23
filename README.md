@@ -39,7 +39,10 @@ There are the steps to build the image and configure the project with Docker:
 To run the app:
 
 1. Start all the services defined with Docker Compose witht he command `docker-compose up -d`.
-2. The app will be running on `http://localhost:7000/`. 
+2. If the `vendor` folder is not created, run ` docker exec -it laravelapp composer install`.
+3. If the `node-modules` folder is not created, run `docker exec -it laravelapp npm install`.
+4. Build the assets with `docker exec -it laravelapp npm run build`.
+5. The app will be running on `http://localhost:7000/`. 
 
 To run the migrations, execute these commands:
 
