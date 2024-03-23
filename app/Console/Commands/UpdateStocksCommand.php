@@ -3,10 +3,9 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Cache;
 
 use App\Services\AlphaVantageService;
-use App\Repositories\StockPriceRepository;
+use App\Contracts\StockPriceRepositoryInterface;
 
 /**
  * Console command for updating stock market prices.
@@ -43,10 +42,10 @@ class UpdateStocksCommand extends Command
      * however a time restriction was specified as a requirement.
      *
      * @param AlphaVantageService $alphaVantageService The Alpha Vantage API service.
-     * @param StockPriceRepository $stockPriceRepository The repository managing StockPrice database records.
+     * @param StockPriceRepositoryInterface $stockPriceRepository The repository managing StockPrice database records.
      * @return void
      */
-    public function handle(AlphaVantageService $alphaVantageService, StockPriceRepository $stockPriceRepository): void
+    public function handle(AlphaVantageService $alphaVantageService, StockPriceRepositoryInterface $stockPriceRepository): void
     {
         $stockSymbols = config('services.alphavantage.stock_symbols');
 

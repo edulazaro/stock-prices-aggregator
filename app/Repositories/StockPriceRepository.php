@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Collection;
 
 use App\Models\StockPrice;
+use App\Contracts\StockPriceRepositoryInterface;
 
 /**
  * Manages the retrieval and persistence of StockPrice models.
@@ -14,7 +15,7 @@ use App\Models\StockPrice;
  * 
  * @author Edu Lazaro
  */
-class StockPriceRepository
+class StockPriceRepository implements StockPriceRepositoryInterface
 {
     /**
      * Retrieves all StockPrices, caching the result.

@@ -6,13 +6,13 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 
-use App\Repositories\StockPriceRepository;
+use App\Contracts\StockPriceRepositoryInterface;
 
 class StockPriceController extends Controller
 {
-    protected $stockPriceRepository;
+    protected StockPriceRepositoryInterface $stockPriceRepository;
 
-    public function __construct(StockPriceRepository $stockPriceRepository)
+    public function __construct(StockPriceRepositoryInterface $stockPriceRepository)
     {
         $this->stockPriceRepository = $stockPriceRepository;
     }

@@ -44,6 +44,11 @@ To run the migrations, execute these commands:
 1. Run the migrations with the command `docker-compose exec app php artisan migrate`.
 2. Run the seeders with the commad `docker-compose exec app php artisan db:seed`.
 
+
+## Testing
+
+To run the tests, run the command `php artisan test`.
+
 ## App Structure
 
 ### Database

@@ -3,12 +3,12 @@
 use Livewire\Volt\Component;
 use Illuminate\Database\Eloquent\Collection;
 
-use App\Repositories\StockPriceRepository;
+use App\Contracts\StockPriceRepositoryInterface;
 
 new class extends Component
 {
-    /** @var StockPriceRepository The repository for managing stock prices. */
-    protected StockPriceRepository $stockPriceRepository;
+    /** @var StockPriceRepositoryInterface The repository for managing stock prices. */
+    protected StockPriceRepositoryInterface $stockPriceRepository;
 
     /** @var Collection Collection of stock prices. */
     public Collection $stockPrices;
@@ -24,9 +24,9 @@ new class extends Component
     /**
      * Initializes the component with the StockPriceRepository.
      *
-     * @param StockPriceRepository $stockPriceRepository The repository for stock prices.
+     * @param StockPriceRepositoryInterface $stockPriceRepository The repository for stock prices.
      */
-    public function boot(StockPriceRepository $stockPriceRepository): void
+    public function boot(StockPriceRepositoryInterface $stockPriceRepository): void
     {
         $this->stockPriceRepository = $stockPriceRepository;
     }
